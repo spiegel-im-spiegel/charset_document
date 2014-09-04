@@ -1,31 +1,35 @@
-\documentclass[a4j,10pt,fleqn]{jsarticle}
-%\usepackage{atbegshi}
-%\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\documentclass[a4j,10pt,fleqn,uplatex]{jsarticle}
 \usepackage{txfonts,times}
-%\usepackage{ascmac}
 \usepackage{okumacro}
 \usepackage{longtable}
+%\usepackage[paperwidth=13.5cm, paperheight=17.25cm, top=0.5cm, left=0.5cm, right=0.5cm, bottom=0.5cm,dvipdfm]{geometry} % for Kindle
 \usepackage[dvipdfmx]{graphicx,xcolor}
+\usepackage{transparent}
+%\usepackage{hyperxmp}
 \usepackage[dvipdfmx]{hyperref}
-\usepackage{pxjahyper}
-
-%%%
-%この文書の組版は奥村晴彦さんの「pLaTeX2e 新ドキュメントクラス」を用いています。
-%
-%  http://www.matsusaka-u.ac.jp/~okumura/jsclasses/
-%
+\usepackage[dvipdfmx]{pxjahyper}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{charset.bib}
 
 \title{\textbf{文字コードとその実装}}
 \author{荒川靖弘}
 \date{第1版（公開版） 2001年11月3日}
 
-%\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
 \hypersetup{% Setup for hyperref packeage
     colorlinks=true,
-    pdftitle=文字コードとその実装,
-    pdfsubject=,
-    pdfauthor=荒川 靖弘,
-    pdfkeywords=JIS ISO2022 Unicode}
+    pdftitle={文字コードとその実装},
+    pdfsubject={},
+    pdfauthor={荒川 靖弘},
+    pdfkeywords={JIS} {ISO2022} {Unicode},
+%    pdfcopyright={2001, Yasuhiro ARAKAWA},
+%    pdflicenseurl={http://creativecommons.org/licenses/by/4.0/},
+%    pdfcontacturl={http://www.baldanders.info/},
+%    pdflang={jp},
+    linkcolor=red,
+    citecolor=green,
+    filecolor=magenta,
+    urlcolor=cyan
+}
 
 \begin{document}
 
@@ -258,7 +262,7 @@ GL領域はほぼIRV（US-ASCII）ですがそれ以外は各国によって独�
 
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[width=7.5cm,clip]{iso2022-8.eps}
+\includegraphics[width=7.5truecm,clip]{iso2022-8.pdf}
 \end{center}
 \caption{ISO/IEC 2022} \label{fig:ISO2022-8}
 \end{figure}
@@ -813,7 +817,6 @@ JIS X 0213 と情報交換用のエンコーディングであるISO-2022-JP-3�
 \nocite{Book:JISHandbook}\nocite{Book:CharCode}\nocite{Book:CharCode2}
 
 
-\bibliographystyle{jplain}
-\bibliography{charset}
+\printbibliography[title=参考文献]
 
 \end{document}
